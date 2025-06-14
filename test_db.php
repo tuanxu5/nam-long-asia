@@ -1,5 +1,5 @@
 <?php
-$host = "172.18.0.2";  // IP của container MySQL
+$host = "127.0.0.1";  // IP của container MySQL
 $user = "root";
 $pass = "zenco2020";
 $dbname = "namlongasia";
