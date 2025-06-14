@@ -25,7 +25,7 @@
 			'server-name' => $_SERVER["SERVER_NAME"],
 			'url' => $url.'/',
 			'type' => 'mysql',
-			'host' => '172.18.0.0',
+			'host' => '127.0.0.1',
 			'username' => 'root',
 			'password' => 'zenco2020',
 			'dbname' => 'namlongasia',
