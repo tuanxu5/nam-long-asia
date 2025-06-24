@@ -1254,18 +1254,15 @@
 		/* Lấy getCurrentPageURL Cano */
 		public function getCurrentPageURL_CANO()
 		{
-			$pageURL = 'http';
-			if(array_key_exists('HTTPS', $_SERVER) && $_SERVER["HTTPS"] == "on") $pageURL .= "s";
-			$pageURL .= "://";
-			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REDIRECT_URL"];
-			$pageURL = str_replace("amp/", "", $pageURL);
-			$urlpos = strpos($pageURL, "?p");
-			$pageURL = ($urlpos) ? explode("?p=", $pageURL) : explode("&p=", $pageURL);
-			$pageURL = explode("?", $pageURL[0]);
-			$pageURL = explode("#", $pageURL[0]);
-			$pageURL = explode("index", $pageURL[0]);
-			echo "Canonical: " . $pageURL[0];
-			return $pageURL[0];
+			$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+			$host = $_SERVER['HTTP_HOST'];
+			$uri = strtok($_SERVER['REQUEST_URI'], '?'); // bỏ query string
+			$uri = explode("#", $uri)[0]; // bỏ hash nếu có
+			$uri = str_replace("amp/", "", $uri); // nếu bạn đang dùng AMP
+		    
+			$url = $protocol . "://" . $host . $uri;
+			echo "Canonical: " . $url;
+			return $url;
 		}
 
 		/* Has file */
