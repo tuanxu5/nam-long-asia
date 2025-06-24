@@ -1264,6 +1264,9 @@
 			$pageURL = explode("?", $pageURL[0]);
 			$pageURL = explode("#", $pageURL[0]);
 			$pageURL = explode("index", $pageURL[0]);
+
+			echo "Canonical: " . $pageURL[0]; die;
+
 			return $pageURL[0];
 		}
 
