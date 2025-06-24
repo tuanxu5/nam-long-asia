@@ -1261,7 +1261,6 @@
 			$uri = str_replace("amp/", "", $uri); // nếu bạn đang dùng AMP
 		    
 			$url = $protocol . "://" . $host . $uri;
-			echo "Canonical: " . $url;
 			return $url;
 		}
 
