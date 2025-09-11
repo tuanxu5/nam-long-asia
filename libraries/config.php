@@ -20,16 +20,14 @@
 			'email' => 'vophuongduy.nina@gmail.com',
 			'timefinish' => '3/06/2023'
 		),
-		'arrayDomainSSL' => array("namlong-asia.com", "www.namlong-asia.com", "localhost"),
+		'arrayDomainSSL' => array("namlong-asia.com", "www.namlong-asia.com"),
 		'database' => array(
-			'server-name' => ($_SERVER["SERVER_NAME"] ?? 'localhost'),
-			'url' => (($_SERVER["SERVER_NAME"] ?? '') === 'localhost') 
-    ? 'http://localhost:8000' 
-    : 'https://namlong-asia.com',
+			'server-name' => $_SERVER["SERVER_NAME"],
+			'url' => $url.'/',
 			'type' => 'mysql',
 			'host' => '127.0.0.1',
 			'username' => 'root',
-			'password' => 'Ptuylht090821',
+			'password' => 'zenco2020',
 			'dbname' => 'namlongasia',
 			'port' => 3306,
 			'prefix' => 'table_',
@@ -135,9 +133,9 @@
 	}
 
 	/* CheckSSL */
-	// if (count($config['arrayDomainSSL'])) {
-	// 	include LIBRARIES . "checkSSL.php";
-	// }
+	if (count($config['arrayDomainSSL'])) {
+		include LIBRARIES . "checkSSL.php";
+	}
 
 	/* Cấu hình base */
 	$configUrl = $config['database']['server-name'].$config['database']['url'];
